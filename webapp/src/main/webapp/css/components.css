@@ -17,13 +17,13 @@
 }
 
 .btn-custom {
-    background-color: #4CAF50; /* Color verde */
-    color: white; /* Texto blanco */
-    border-color: #4CAF50; /* Borde verde */
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
 }
 
 .btn:hover {
-    background-color: #45a049; /* Verde más oscuro al pasar el mouse */
+    background-color: #45a049;
     border-color: #45a049;
 }
 .btn:focus {
@@ -63,9 +63,10 @@
 
 .card-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que las tarjetas se ajusten si no caben en una fila */
-    gap: 1rem; /* Espaciado entre las tarjetas */
-    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .card:hover {

@@ -1,4 +1,5 @@
 <%@ tag language="java" pageEncoding="UTF-8" %>
+<%@ taglib prefix="paw" tagdir="/WEB-INF/tags" %>
 
 <%@ attribute name="cardPrice" required="true" type="java.lang.Double" %>
 <%@ attribute name="cardImg" required="false" %>
@@ -10,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<div class="card">
+<div class="card" style="max-width: 200px"> <%-- Ajusta el ancho máximo de la tarjeta, arreglar --%>
     <div class="card-header">
         <c:choose>
             <c:when test="${not empty cardImg}">
@@ -22,14 +23,15 @@
         </c:choose>
         <img src="${imgUrl}" alt="Vinyl image" class="card-img-top"/>
     </div>
-    <h3 class="card-title"><c:out value="${cardName}"/></h3>
+    <h2 class="card-title"><c:out value="${cardName}"/></h2>
 
     <div class="card-body">
-        <p class="card-text">Artist: <c:out value="${cardArtist}"/></p>
-        <p class="card-text">Date: <c:out value="${cardDate}"/></p>
-        <p class="card-text">Price: $<c:out value="${cardPrice}"/></p>
+        <p class="card-text">Artista: <c:out value="${cardArtist}"/></p>
+        <p class="card-text">Fecha: <c:out value="${cardDate}"/></p>
+        <p class="card-text">Precio: $<c:out value="${cardPrice}"/></p>
     </div>
-
+    <paw:button text="Comprar" size="sm" type="submit"
+                cssClass="btn-primary"/>
 </div>
 
 
