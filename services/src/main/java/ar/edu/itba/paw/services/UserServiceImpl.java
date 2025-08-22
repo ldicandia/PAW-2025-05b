@@ -20,4 +20,9 @@ public class UserServiceImpl implements UserService {
     public Optional<User> findById(long id) {
         return userDao.findById(id);
     }
+
+    @Override
+    public User create(String username) {
+        return userDao.create(username);
+    }
 }

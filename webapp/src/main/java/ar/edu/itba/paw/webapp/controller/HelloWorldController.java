@@ -35,4 +35,10 @@ public class HelloWorldController {
         return mav;
     }
 
+    @RequestMapping("/create")
+    public ModelAndView profile(@RequestParam("username") final String username) {
+        User newUser = us.create(username);
+        return new ModelAndView("redirect:/?userId=" + newUser.getId());
+    }
+
 }

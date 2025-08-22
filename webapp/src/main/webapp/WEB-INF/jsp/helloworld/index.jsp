@@ -1,5 +1,4 @@
 <%@ taglib prefix="paw" tagdir="/WEB-INF/tags" %>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
@@ -33,8 +32,8 @@
         <paw:input inputId="email" inputLabel="Correo electronico" inputName="email"
                       inputType="email" inputPlaceholder="Ingrese su correo electronico" />
 
-        <paw:input inputId="contracenia" inputLabel="Contracena" inputName="contracenia"
-                   inputType="contracenia" inputPlaceholder="Ingrese su contracena" />
+        <paw:input inputId="contraceña" inputLabel="Contraceña" inputName="contraceña"
+                   inputType="contraceña" inputPlaceholder="Ingrese su contraceña" />
 
         <paw:button text="Ingresar" type="submit" cssClass="btn-primary" />
     </form>
