@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
@@ -22,9 +23,14 @@ import javax.sql.DataSource;
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence" })
 @Configuration
+@PropertySource("classpath:application.properties")
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Value("classpath:db/schema.sql")
     private Resource schemaSql;
+    @Value("${db.username}")
+    private String dbUsername;
+    @Value("${db.password}")
+    private String dbPassword;
     @Bean
     public ViewResolver viewResolver() {
         final InternalResourceViewResolver vr = new
@@ -41,8 +47,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
        ds.setDriverClass(org.postgresql.Driver.class);
        ds.setUrl("jdbc:postgresql://localhost/paw");
-       ds.setUsername("postgres");
-       ds.setPassword("procer");
+       ds.setUsername(dbUsername);
+       ds.setPassword(dbPassword);
        return ds;
     }
 
