@@ -8,3 +8,4 @@ target/
 .settings/
 .smarttomcat
 src/main/resources/application.properties
+webapp/src/main/resources/application.properties
