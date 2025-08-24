@@ -3,6 +3,30 @@ CREATE TABLE IF NOT EXISTS  users (
     username VARCHAR(100) NOT NULL UNIQUE
 );
 
+-- CREATE TYPE publication_status AS ENUM (
+--    'activa',
+--    'pausada',
+--    'vendida'
+--   );
+--
+-- CREATE TYPE vinyl_condition AS ENUM (
+--    'Nuevo',
+--    'NM',    -- Near Mint
+--    'VG+',   -- Very Good Plus
+--    'VG',    -- Very Good
+--    'G',     -- Good
+--    'P'      -- Poor
+--    );
+--
+-- CREATE TYPE purchase_status AS ENUM (
+--    'creada',
+--    'dinero_enviado',
+--    'dinero_recibido',
+--    'vinilo_enviado',
+--    'vinilo_entregado'
+--    );
+
+
 CREATE TABLE IF NOT EXISTS comprador (
                            id              BIGSERIAL PRIMARY KEY,
                            nombre          VARCHAR(120) NOT NULL,
@@ -47,25 +71,3 @@ CREATE TABLE IF NOT EXISTS compra (
                         entregada_en   TIMESTAMPTZ
 );
 
--- CREATE TYPE publication_status AS ENUM (
---    'activa',
---    'pausada',
---    'vendida'
---   );
-
--- CREATE TYPE vinyl_condition AS ENUM (
---    'Nuevo',
---    'NM',    -- Near Mint
---    'VG+',   -- Very Good Plus
---    'VG',    -- Very Good
---    'G',     -- Good
---    'P'      -- Poor
---    );
-
--- CREATE TYPE purchase_status AS ENUM (
---    'creada',
---    'dinero_enviado',
---    'dinero_recibido',
---    'vinilo_enviado',
---    'vinilo_entregado'
---    );
