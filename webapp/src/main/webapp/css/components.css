@@ -11,6 +11,9 @@
 /* Importar estilos de inputs */
 @import url('inputs.css');
 
+/* Importar estilos del header */
+@import url('header.css');
+
 /* ===== ESTILOS GENERALES ===== */
 
 /* Reset básico para componentes */

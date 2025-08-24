@@ -1,0 +1,63 @@
+/* ===== ESTILOS DE INPUTS ===== */
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #374151;
+    font-size: 0.875rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: #374151;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #E63961;
+    box-shadow: 0 0 0 3px rgba(230, 57, 97, 0.1);
+}
+
+.form-input:hover {
+    border-color: #D1D5DB;
+}
+
+.form-input::placeholder {
+    color: #9CA3AF;
+}
+
+.form-input:disabled {
+    background-color: #F9FAFB;
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+
+/* Inputs con error */
+.form-input.error {
+    border-color: #EF4444;
+}
+
+.form-input.error:focus {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Inputs con éxito */
+.form-input.success {
+    border-color: #10B981;
+}
+
+.form-input.success:focus {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}

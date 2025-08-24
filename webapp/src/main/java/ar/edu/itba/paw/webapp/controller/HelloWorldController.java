@@ -41,9 +41,9 @@ public class HelloWorldController {
         return new ModelAndView("redirect:/?userId=" + newUser.getId());
     }
 
-    @RequestMapping("/buttons-demo")
-    public ModelAndView showButtonsDemo() {
-        return new ModelAndView("helloworld/buttons-demo");
+    @RequestMapping("/demo")
+    public String showButtonsDemo() {
+        return "helloworld/buttons-demo";
     }
 
     @RequestMapping(value = "/processInputMail", method = RequestMethod.POST)
