@@ -41,4 +41,19 @@ public class HelloWorldController {
         return new ModelAndView("redirect:/?userId=" + newUser.getId());
     }
 
+    @RequestMapping("/buttons-demo")
+    public ModelAndView showButtonsDemo() {
+        return new ModelAndView("helloworld/buttons-demo");
+    }
+
+    @RequestMapping(value = "/processInputMail", method = RequestMethod.POST)
+    public ModelAndView processInputMail(@RequestParam("email") String email,
+                                       @RequestParam("password") String password) {
+        // Aquí puedes procesar el login
+        // Por ahora solo redirigimos de vuelta a la página principal
+        final ModelAndView mav = new ModelAndView("redirect:/");
+        mav.addObject("message", "Formulario procesado correctamente");
+        return mav;
+    }
+
 }
