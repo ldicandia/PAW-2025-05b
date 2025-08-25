@@ -11,7 +11,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<div class="card" style="max-width: 200px"> <%-- Ajusta el ancho máximo de la tarjeta, arreglar --%>
+<div class="card">
     <div class="card-header">
         <c:choose>
             <c:when test="${not empty cardImg}">
