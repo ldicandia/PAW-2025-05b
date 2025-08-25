@@ -1,7 +1,26 @@
 <%@ tag language="java" pageEncoding="UTF-8" %>
 <%@ taglib prefix="paw" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<section class="hero-section">
+<%@ attribute name="heroTitle" required="false" %>
+<%@ attribute name="heroSubtitle" required="false" %>
+<%@ attribute name="heroDescription" required="false" %>
+<%@ attribute name="primaryButtonText" required="false" %>
+<%@ attribute name="secondaryButtonText" required="false" %>
+<%@ attribute name="statsDiscos" required="false" %>
+<%@ attribute name="statsIntercambios" required="false" %>
+<%@ attribute name="cssClass" required="false" %>
+
+<c:set var="titleText" value="${not empty heroTitle ? heroTitle : 'El Mejor'}" />
+<c:set var="subtitleText" value="${not empty heroSubtitle ? heroSubtitle : 'Mercado de Vinilos'}" />
+<c:set var="descriptionText" value="${not empty heroDescription ? heroDescription : 'Descubre joyas raras, intercambia tu colección y conéctate con otros entusiastas del vinilo. Compra, vende e intercambia discos en la comunidad de vinilos más confiable del mundo.'}" />
+<c:set var="primaryBtnText" value="${not empty primaryButtonText ? primaryButtonText : 'Comenzar a Coleccionar'}" />
+<c:set var="secondaryBtnText" value="${not empty secondaryButtonText ? secondaryButtonText : 'Explorar Discos'}" />
+<c:set var="discosCount" value="${not empty statsDiscos ? statsDiscos : '50K+'}" />
+<c:set var="intercambiosCount" value="${not empty statsIntercambios ? statsIntercambios : '2K+'}" />
+<c:set var="additionalCssClass" value="${not empty cssClass ? cssClass : ''}" />
+
+<section class="hero-section${additionalCssClass}">
   <!-- Background pattern -->
   <div class="hero-background">
     <div class="hero-bg-circle-1"></div>
@@ -14,21 +33,20 @@
       <div class="hero-content">
         <div class="hero-text">
           <h1 class="hero-title">
-            El Mejor
-            <span class="hero-title-gradient">Mercado de Vinilos</span>
+            <c:out value="${titleText}" />
+            <span class="hero-title-gradient"><c:out value="${subtitleText}" /></span>
           </h1>
           <p class="hero-description">
-            Descubre joyas raras, intercambia tu colección y conéctate con otros entusiastas del vinilo. 
-            Compra, vende e intercambia discos en la comunidad de vinilos más confiable del mundo.
+            <c:out value="${descriptionText}" />
           </p>
         </div>
 
         <div class="hero-buttons">
           <button class="btn-start-collecting">
-            Comenzar a Coleccionar
+            <c:out value="${primaryBtnText}" />
           </button>
           <button class="btn-browse-records">
-            Explorar Discos
+            <c:out value="${secondaryBtnText}" />
           </button>
         </div>
 
@@ -40,7 +58,7 @@
               </svg>
             </div>
             <div>
-              <div class="hero-stat-number">50K+</div>
+              <div class="hero-stat-number"><c:out value="${discosCount}" /></div>
               <div class="hero-stat-label">Discos Listados</div>
             </div>
           </div>
@@ -51,7 +69,7 @@
               </svg>
             </div>
             <div>
-              <div class="hero-stat-number">2K+</div>
+              <div class="hero-stat-number"><c:out value="${intercambiosCount}" /></div>
               <div class="hero-stat-label">Intercambios</div>
             </div>
           </div>
