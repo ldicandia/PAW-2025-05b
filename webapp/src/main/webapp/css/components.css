@@ -14,6 +14,9 @@
 /* Importar estilos del header */
 @import url('header.css');
 
+/* Importar estilos del hero */
+@import url('hero.css');
+
 /* ===== ESTILOS GENERALES ===== */
 
 /* Reset básico para componentes */

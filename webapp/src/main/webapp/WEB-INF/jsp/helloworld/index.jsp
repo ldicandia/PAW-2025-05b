@@ -9,15 +9,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<c:url value='/css/main.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/components.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/hero.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SOMEHASH..."
           crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <title>Vinyl Store - Página Principal</title>
 </head>
 <body>
 
 <!-- Header -->
 <paw:header />
+
+<!-- Hero Section -->
+<paw:hero />
 
 <!-- Contenido de la página -->
 <div class="component-container">
