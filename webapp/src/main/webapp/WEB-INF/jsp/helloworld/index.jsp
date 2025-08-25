@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<c:url value='/css/main.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/components.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/hero.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/searchFilters.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
           integrity="sha512-SOMEHASH..."
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,6 +24,9 @@
 
 <!-- Hero Section -->
 <paw:hero />
+
+<!-- Filtros de Búsqueda -->
+<paw:searchFilters instanceId="main" />
 
 <!-- Contenido de la página -->
 <div class="component-container">
@@ -76,6 +80,54 @@
     </div>
 
 </div>
+
+<!-- CÓDIGO PROVISIONAL - Este JavaScript inline debe ser reemplazado por lógica del backend cuando se implemente la funcionalidad real -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterContainers = document.querySelectorAll('.search-filters-container');
+    
+    filterContainers.forEach(function(container) {
+        const mainSearch = container.querySelector('.search-input');
+        const filtersToggle = container.querySelector('.filters-toggle-btn');
+        const filtersPanel = container.querySelector('.filters-panel');
+        const clearFilters = container.querySelector('.btn-clear-filters');
+        const applyFilters = container.querySelector('.btn-apply-filters');
+        
+        if (!mainSearch || !filtersToggle || !filtersPanel) return;
+        
+        const uniqueId = mainSearch.id.replace('mainSearch_', '');
+        
+        filtersToggle.addEventListener('click', function() {
+            filtersPanel.classList.toggle('filters-panel-open');
+            filtersToggle.classList.toggle('active');
+        });
+        
+        if (clearFilters) {
+            clearFilters.addEventListener('click', function() {
+                const genreFilter = container.querySelector(`#genreFilter_${uniqueId}`);
+                const conditionFilter = container.querySelector(`#conditionFilter_${uniqueId}`);
+                const minPrice = container.querySelector(`#minPrice_${uniqueId}`);
+                const maxPrice = container.querySelector(`#maxPrice_${uniqueId}`);
+                const sortFilter = container.querySelector(`#sortFilter_${uniqueId}`);
+                
+                mainSearch.value = '';
+                if (genreFilter) genreFilter.value = '';
+                if (conditionFilter) conditionFilter.value = '';
+                if (minPrice) minPrice.value = '';
+                if (maxPrice) maxPrice.value = '';
+                if (sortFilter) sortFilter.value = 'recent';
+            });
+        }
+        
+        if (applyFilters) {
+            applyFilters.addEventListener('click', function() {
+                filtersPanel.classList.remove('filters-panel-open');
+                filtersToggle.classList.remove('active');
+            });
+        }
+    });
+});
+</script>
 
 </body>
 </html>
