@@ -156,3 +156,67 @@
     transform: none !important;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
+
+.btn i {
+    display: inline-block;
+    margin-right: 6px;
+    font-size: 1em;
+}
+.btn i.right {
+    margin-left: 6px;
+    margin-right: 0;
+}
+.btn-buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #e63996;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+    margin-top: 1.25rem;
+    box-sizing: border-box;
+}
+.btn-buy:hover {
+    background-color: #c9207a;
+}
+.btn-fav {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+
+    width: 40px;    /* ancho fijo */
+    height: 40px;   /* alto fijo */
+
+    display: flex;
+    align-items: center;     /* centra vertical */
+    justify-content: center; /* centra horizontal */
+
+    cursor: pointer;
+    color: #6b7280;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-fav:hover {
+    background: #f3f4f6;
+    color: #e63996;
+}
+
+.btn-fav i {
+    font-size: 18px;
+    line-height: 1;
+    position: relative;
+    left: 2.5px;
+}

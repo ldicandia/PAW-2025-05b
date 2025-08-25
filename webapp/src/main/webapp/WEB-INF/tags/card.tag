@@ -22,16 +22,27 @@
             </c:otherwise>
         </c:choose>
         <img src="${imgUrl}" alt="Vinyl image" class="card-img-top"/>
+        <paw:button
+                text=""
+                cssClass="btn-fav"
+                icon="fa-regular fa-heart"
+                variant="icon"
+        >
+            <i class="fa-regular fa-heart"></i>
+        </paw:button>
     </div>
     <h2 class="card-title"><c:out value="${cardName}"/></h2>
 
     <div class="card-body">
-        <p class="card-text">Artista: <c:out value="${cardArtist}"/></p>
-        <p class="card-text">Fecha: <c:out value="${cardDate}"/></p>
-        <p class="card-text">Precio: $<c:out value="${cardPrice}"/></p>
+        <p class="author"><c:out value="${cardArtist}"/></p>
+        <p class="meta"> <c:out value="${cardDate}"/></p>
+        <p class="price">$<c:out value="${cardPrice}"/></p>
+
     </div>
     <paw:button text="Comprar" size="sm" type="submit"
-                cssClass="btn-primary"/>
+                cssClass="btn-buy"
+                icon="fa fa-shopping-cart"/>
+
 </div>
 
 

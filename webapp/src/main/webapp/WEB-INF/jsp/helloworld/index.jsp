@@ -1,11 +1,16 @@
 <%@ taglib prefix="paw" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 
 
 <html>
 <head>
     <link rel="stylesheet" href="<c:url value='/css/main.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/components.css'/>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SOMEHASH..."
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Vinyl Store - Página Principal</title>
 </head>
 <body>

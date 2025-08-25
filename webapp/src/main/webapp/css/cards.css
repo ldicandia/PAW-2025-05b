@@ -1,13 +1,13 @@
 /* ===== ESTILOS DE CARDS ===== */
 
 .card {
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
     overflow: hidden;
     background-color: #fff;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    font-family: "Inter", Arial, sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-container {
@@ -20,33 +20,56 @@
 
 .card:hover {
     transform: scale(1.02);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(16, 24, 40, 0.12);
 }
 
 .card-header {
     position: relative;
-    overflow: hidden;
-    height: 200px;
-    background-color: #f8f9fa;
+    height: 180px;
 }
 
 .card-header img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
+
 
 .card-body {
     padding: 1rem;
 }
 
 .card-title {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 1rem 0.25rem 0.25rem;
+}
+.card-body .author {
+    color: #d6336c;
     font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #333;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+.card-body .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 0.6rem;
+}
+.card-body .meta .status {
+    font-weight: 600;
 }
 
+
+.card-body .price {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin: 0.4rem 0 0.15rem;
+    color: #111827;
+}
 .card-text {
     color: #666;
     line-height: 1.5;
@@ -58,3 +81,11 @@
     background-color: #f8f9fa;
     border-top: 1px solid #eee;
 }
+.card-actions {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 16px;
+}
+
+
+
