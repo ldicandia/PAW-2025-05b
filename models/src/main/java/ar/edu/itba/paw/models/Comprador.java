@@ -3,13 +3,13 @@ package ar.edu.itba.paw.models;
 public class Comprador {
     private final long id;
     private final String nombre;
-    private final String apellido;
+    private final String dni;
     private final String email;
 
-    public Comprador(final long id, final String nombre, final String apellido, final String email) {
+    public Comprador(final long id, final String nombre, final String  dni, final String email) {
         this.id = id;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this. dni =  dni;
         this.email = email;
     }
 
@@ -21,8 +21,8 @@ public class Comprador {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getDni() {
+        return dni;
     }
 
     public String getEmail() {

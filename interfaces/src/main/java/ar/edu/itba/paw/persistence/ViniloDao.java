@@ -12,7 +12,10 @@ public interface ViniloDao {
     Vinilo create(String nombre, String fecha_lanzamiento, String genero,
                   Cancion[] canciones, float precio, String condicion, Integer stock);
 
-    List<Vinilo> findById(long id);
+    Optional<Vinilo> findById(long id);
 
+   List<Vinilo> findAll();
+
+   void deleteById(long id);
 
 }

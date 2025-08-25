@@ -38,7 +38,10 @@ public class ViniloDaoImplTest {
 
     @Test
     public void testCreateVinilo() {
-        Vinilo vinilo = viniloDao.create("Test Album", "2023-10-01", "Rock", null, 19.99f, "VG", 10);
+        // 1. Precondiciones
+        Vinilo vinilo = viniloDao.create("Test Album", "2023-10-01", "Rock", null, 19.99f, "Nuevo", 10);
+
+        // 2. Ejercitar
         assertNotNull(vinilo);
         assertEquals("Test Album", vinilo.getNombre());
         assertEquals("Rock", vinilo.getGenero());
@@ -46,8 +49,25 @@ public class ViniloDaoImplTest {
         assertEquals("Nuevo", vinilo.getCondicion());
         assertEquals(Integer.valueOf(10), vinilo.getStock());
 
-        Optional<Vinilo> retrievedVinilo = viniloDao.findById(vinilo.getId()).stream().findFirst();
+        // 3. Postcondiciones
+        assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "vinilo"));
+    }
+
+    @Test
+    public void testFindById() {
+        // 1. Precondiciones
+        Vinilo vinilo = viniloDao.create("Test Album", "2023-10-01", "Rock", null, 19.99f, "VG", 10);
+
+        // 2. Ejercitar
+        Optional<Vinilo> retrievedVinilo = viniloDao.findById(vinilo.getId());
+
+        // 3. Postcondiciones
         assertNotNull(retrievedVinilo.orElse(null));
         assertEquals(vinilo.getId(), retrievedVinilo.get().getId());
+        assertEquals(vinilo.getNombre(), retrievedVinilo.get().getNombre());
+        assertEquals(vinilo.getGenero(), retrievedVinilo.get().getGenero());
+        assertEquals(vinilo.getPrecio(), retrievedVinilo.get().getPrecio(), 0.01);
+        assertEquals(vinilo.getCondicion(), retrievedVinilo.get().getCondicion());
+        assertEquals(vinilo.getStock(), retrievedVinilo.get().getStock());
     }
 }
