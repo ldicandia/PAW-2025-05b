@@ -98,6 +98,7 @@
     padding: 0.75rem 1rem 0.75rem 3rem; /* Aumentado el padding-left para el icono */
     border: 1px solid #e5e7eb;
     border-radius: 0.5rem;
+    font-family: "Inter", Arial, sans-serif; /* Misma tipografía que las cards */
     font-size: 0.875rem;
     color: #111827;
     background: white;
@@ -178,6 +179,17 @@
 .nav-icon {
     width: 1.25rem;
     height: 1.25rem;
+}
+
+/* Estilos para iconos de Font Awesome en el header */
+.nav-icon-button i {
+    font-size: 1.25rem;
+    color: #4b5563;
+    transition: color 0.2s ease;
+}
+
+.nav-icon-button:hover i {
+    color: #E63961;
 }
 
 /* Menú móvil */
