@@ -1,5 +1,9 @@
 package ar.edu.itba.paw.models;
 
+
+import lombok.Getter;
+
+@Getter
 public class Comprador {
     private final long id;
     private final String nombre;
@@ -11,21 +15,5 @@ public class Comprador {
         this.nombre = nombre;
         this. dni =  dni;
         this.email = email;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public String getEmail() {
-        return email;
     }
 }

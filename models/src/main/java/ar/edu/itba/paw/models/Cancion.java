@@ -1,5 +1,9 @@
 package ar.edu.itba.paw.models;
 
+import lombok.Getter;
+
+@Getter
+
 public class Cancion {
     private final long id;
     private final String titulo;
@@ -15,29 +19,5 @@ public class Cancion {
         this.duracion_seg = duracion_seg;
         this.posicion = posicion;
         this.vinilo = vinilo;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getArtista() {
-        return artista;
-    }
-
-    public int getDuracion() {
-        return duracion_seg;
-    }
-
-    public int getPosicion() {
-        return posicion;
-    }
-
-    public Vinilo getVinilo() {
-        return vinilo;
     }
 }

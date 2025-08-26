@@ -2,10 +2,13 @@ package ar.edu.itba.paw.webapp.config;
 
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.DatabasePopulator;
@@ -19,18 +22,20 @@ import org.springframework.web.servlet.view.JstlView;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import javax.sql.DataSource;
+import java.nio.charset.StandardCharsets;
+import java.util.concurrent.TimeUnit;
 
 @EnableWebMvc
 @ComponentScan({ "ar.edu.itba.paw.webapp.controller", "ar.edu.itba.paw.services", "ar.edu.itba.paw.persistence" })
 @Configuration
-@PropertySource("classpath:application.properties")
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Value("classpath:db/schema.sql")
     private Resource schemaSql;
-    @Value("${db.username}")
+    @Value("${DB_USERNAME}")
     private String dbUsername;
-    @Value("${db.password}")
+    @Value("${DB_PASSWORD}")
     private String dbPassword;
+
     @Bean
     public ViewResolver viewResolver() {
         final InternalResourceViewResolver vr = new
@@ -40,18 +45,25 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         vr.setSuffix(".jsp");
         return vr;
     }
-
+    @Bean
+    public MessageSource messageSource() {
+        final ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.addBasenames("classpath:i18n/messages");
+        messageSource.setDefaultEncoding(StandardCharsets.UTF_8.displayName());
+        messageSource.setCacheSeconds((int)TimeUnit.SECONDS.toSeconds(5));
+        return messageSource;
+    }
     @Bean
     public DataSource dataSource() {
        final SimpleDriverDataSource ds = new SimpleDriverDataSource();
 
        ds.setDriverClass(org.postgresql.Driver.class);
        ds.setUrl("jdbc:postgresql://localhost/paw");
+
        ds.setUsername(dbUsername);
        ds.setPassword(dbPassword);
        return ds;
     }
-
     @Bean
     public DataSourceInitializer dataSourceInitializer(){
         final DataSourceInitializer dsi = new DataSourceInitializer();
@@ -59,17 +71,21 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         dsi.setDatabasePopulator(dataSourcePopulator());
         return dsi;
     }
-
     private DatabasePopulator dataSourcePopulator() {
         final ResourceDatabasePopulator dbp = new ResourceDatabasePopulator();
         dbp.addScript(schemaSql);
         return dbp;
     }
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         super.addResourceHandlers(registry);
         registry.addResourceHandler("/css/**").addResourceLocations("/css/");
         registry.addResourceHandler("/images/**").addResourceLocations("/images/");
     }
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {
+        return new PropertySourcesPlaceholderConfigurer();
+    }
+
 }

@@ -1,7 +1,11 @@
 package ar.edu.itba.paw.models;
 
+import lombok.Getter;
+
 import java.util.Date;
 
+
+@Getter
 public class Compra {
     private final long id;
     private final Comprador comprador;
@@ -27,43 +31,4 @@ public class Compra {
         this.entregadaEn = entregadaEn;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public Comprador getComprador() {
-        return comprador;
-    }
-
-    public Vinilo getVinilo() {
-        return vinilo;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public Float getPrecio() {
-        return precio;
-    }
-
-    public Date getCreadaEn() {
-        return creadaEn;
-    }
-
-    public Date getPagadaEn() {
-        return pagadaEn;
-    }
-
-    public Date getPagoRecibidoEn() {
-        return pagoRecibidoEn;
-    }
-
-    public Date getEnviadaEn() {
-        return enviadaEn;
-    }
-
-    public Date getEntregadaEn() {
-        return entregadaEn;
-    }
 }

@@ -68,11 +68,6 @@ public class ViniloDaoImpl implements ViniloDao {
     public List<Vinilo> findAll() {
         return jdbcTemplate.query("SELECT * FROM vinilo", ROW_MAPPER);
     }
-
-    @Override
-    public void deleteById(long id) {
-        jdbcTemplate.update("DELETE FROM vinilo WHERE id = ?", id);
-    }
 }
 
 

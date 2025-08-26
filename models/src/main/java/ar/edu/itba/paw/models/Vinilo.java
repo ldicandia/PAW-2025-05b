@@ -1,7 +1,12 @@
 package ar.edu.itba.paw.models;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Date;
 
+@Getter
+@Setter
 public class Vinilo {
     private long id;
     private String nombre;
@@ -23,78 +28,6 @@ public class Vinilo {
         this.condicion = condicion;
         this.estadoPublicacion = estadoPublicacion;
         this.stock = stock;
-        this.creadoEn = creadoEn;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public Date getFechaLanzamiento() {
-        return fechaLanzamiento;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public Float getPrecio() {
-        return precio;
-    }
-
-    public String getCondicion() {
-        return condicion;
-    }
-
-    public String getEstadoPublicacion() {
-        return estadoPublicacion;
-    }
-
-    public Integer getStock() {
-        return stock;
-    }
-
-    public Date getCreadoEn() {
-        return creadoEn;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setFechaLanzamiento(Date fechaLanzamiento) {
-        this.fechaLanzamiento = fechaLanzamiento;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public void setPrecio(Float precio) {
-        this.precio = precio;
-    }
-
-    public void setCondicion(String condicion) {
-        this.condicion = condicion;
-    }
-
-    public void setEstadoPublicacion(String estadoPublicacion) {
-        this.estadoPublicacion = estadoPublicacion;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
-    public void setCreadoEn(Date creadoEn) {
         this.creadoEn = creadoEn;
     }
 }

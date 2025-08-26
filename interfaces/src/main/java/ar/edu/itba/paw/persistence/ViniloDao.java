@@ -16,6 +16,4 @@ public interface ViniloDao {
 
    List<Vinilo> findAll();
 
-   void deleteById(long id);
-
 }
