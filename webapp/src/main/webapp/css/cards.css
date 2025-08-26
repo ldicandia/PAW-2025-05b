@@ -8,6 +8,8 @@
     background-color: #fff;
     font-family: "Inter", Arial, sans-serif;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .card-header {
