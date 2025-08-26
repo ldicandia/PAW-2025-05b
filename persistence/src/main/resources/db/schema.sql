@@ -1,46 +1,52 @@
+DROP TABLE IF EXISTS vinyl CASCADE;
+DROP TABLE IF EXISTS song CASCADE;
+DROP TABLE IF EXISTS purchase CASCADE;
+DROP TABLE IF EXISTS buyer CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
 CREATE TABLE IF NOT EXISTS users (
-                                     userid SERIAL PRIMARY KEY,
-                                     username VARCHAR(100) NOT NULL UNIQUE
+                                     userId SERIAL PRIMARY KEY,
+                                     userName VARCHAR(100) NOT NULL UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS comprador (
-                                         id BIGSERIAL PRIMARY KEY,
-                                         nombre VARCHAR(120) NOT NULL,
-                                         email VARCHAR(120) NOT NULL UNIQUE,
-                                         dni VARCHAR(20) UNIQUE
+CREATE TABLE IF NOT EXISTS buyer (
+                                     id BIGSERIAL PRIMARY KEY,
+                                     name VARCHAR(120) NOT NULL,
+                                     email VARCHAR(120) NOT NULL UNIQUE,
+                                     dni VARCHAR(20) UNIQUE
 );
 
-CREATE TABLE IF NOT EXISTS vinilo (
-                                      id BIGSERIAL PRIMARY KEY,
-                                      nombre VARCHAR(160) NOT NULL,
-                                      fecha_lanzamiento DATE,
-                                      genero VARCHAR(80),
-                                      precio NUMERIC(12,2) NOT NULL CHECK (precio >= 0),
-                                      condicion VARCHAR(20) NOT NULL CHECK (condicion IN ('Nuevo', 'NM', 'VG+', 'VG', 'G', 'P')),
-                                      estado_publicacion VARCHAR(20) NOT NULL CHECK (estado_publicacion IN ('activa', 'pausada', 'vendida')),
-                                      creado_en TIMESTAMP NOT NULL DEFAULT now(),
-                                      stock INTEGER NOT NULL CHECK (stock >= 0) DEFAULT 1
+CREATE TABLE IF NOT EXISTS vinyl (
+                                     id BIGSERIAL PRIMARY KEY,
+                                     title VARCHAR(160) NOT NULL,
+                                     releaseDate DATE,
+                                     genre VARCHAR(80),
+                                     price NUMERIC(12,2) NOT NULL CHECK (price >= 0),
+                                     condition VARCHAR(20) NOT NULL CHECK (condition IN ('MINT', 'NM', 'VG+', 'VG', 'G', 'P')),
+                                     publicationStatus VARCHAR(20) NOT NULL CHECK (publicationStatus IN ('active', 'paused', 'sold')),
+                                     createdAt TIMESTAMP NOT NULL DEFAULT now(),
+                                     stock INTEGER NOT NULL CHECK (stock >= 0) DEFAULT 1
 );
 
-CREATE TABLE IF NOT EXISTS cancion (
-                                       id BIGSERIAL PRIMARY KEY,
-                                       vinilo_id BIGINT NOT NULL REFERENCES vinilo(id) ON DELETE CASCADE,
-                                       titulo VARCHAR(160) NOT NULL,
-                                       artista VARCHAR(160) NOT NULL,
-                                       duracion_seg INTEGER CHECK (duracion_seg IS NULL OR duracion_seg > 0),
-                                       posicion VARCHAR(10),
-                                       UNIQUE (vinilo_id, titulo)
+CREATE TABLE IF NOT EXISTS song (
+                                    id BIGSERIAL PRIMARY KEY,
+                                    vinylId BIGINT NOT NULL REFERENCES vinyl(id) ON DELETE CASCADE,
+                                    title VARCHAR(160) NOT NULL,
+                                    artist VARCHAR(160) NOT NULL,
+                                    durationSec INTEGER CHECK (durationSec IS NULL OR durationSec > 0),
+                                    position VARCHAR(10),
+                                    UNIQUE (vinylId, title)
 );
 
-CREATE TABLE IF NOT EXISTS compra (
-                                      id BIGSERIAL PRIMARY KEY,
-                                      comprador_id BIGINT NOT NULL REFERENCES comprador(id) ON DELETE RESTRICT,
-                                      vinilo_id BIGINT NOT NULL REFERENCES vinilo(id) ON DELETE RESTRICT,
-                                      estado VARCHAR(20) NOT NULL CHECK (estado IN ('creada', 'dinero_enviado', 'dinero_recibido', 'vinilo_enviado', 'vinilo_entregado')),
-                                      precio NUMERIC(12,2) NOT NULL CHECK (precio >= 0),
-                                      creada_en TIMESTAMP NOT NULL DEFAULT now(),
-                                      pagada_en TIMESTAMP,
-                                      pago_recibido_en TIMESTAMP,
-                                      enviada_en TIMESTAMP,
-                                      entregada_en TIMESTAMP
+CREATE TABLE IF NOT EXISTS purchase (
+                                        id BIGSERIAL PRIMARY KEY,
+                                        buyerId BIGINT NOT NULL REFERENCES buyer(id) ON DELETE RESTRICT,
+                                        vinylId BIGINT NOT NULL REFERENCES vinyl(id) ON DELETE RESTRICT,
+                                        status VARCHAR(20) NOT NULL CHECK (status IN ('created', 'moneySent', 'moneyReceived', 'vinylSent', 'vinylDelivered')),
+                                        price NUMERIC(12,2) NOT NULL CHECK (price >= 0),
+                                        createdAt TIMESTAMP NOT NULL DEFAULT now(),
+                                        paidAt TIMESTAMP,
+                                        paymentReceivedAt TIMESTAMP,
+                                        sentAt TIMESTAMP,
+                                        deliveredAt TIMESTAMP
 );
