@@ -4,6 +4,6 @@ import ar.edu.itba.paw.models.Purchase;
 
 public interface PurchaseDao {
 
-    long create(long compradorId, long viniloId, String estado, int precio);
+    long create(long buyerId, long vinylId, String status, int price);
     Purchase findById(long id);
 }
