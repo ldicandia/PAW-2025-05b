@@ -9,6 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<c:url value='/css/main.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/components.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/buttons.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/cards.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/inputs.css'/>">
+    <link rel="stylesheet" href="<c:url value='/css/header.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/hero.css'/>">
     <link rel="stylesheet" href="<c:url value='/css/searchFilters.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
