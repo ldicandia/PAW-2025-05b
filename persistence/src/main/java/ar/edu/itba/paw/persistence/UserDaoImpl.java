@@ -33,18 +33,17 @@ public class UserDaoImpl implements UserDao{
     }
 
     @Override
-    public Optional<User> findById(long id) {
-        return jdbcTemplate.query("SELECT * FROM users Where userid = ?", ROW_MAPPER, id)
-                .stream()
-                .findFirst();
-    }
-
-    @Override
     public User create(String username) {
         final Map<String, Object> values = Map.of("username", username);
         final Number key = jdbcInsert.executeAndReturnKey(values);
         return new User(key.longValue(), username);
     }
 
+    @Override
+    public Optional<User> findById(long id) {
+        return jdbcTemplate.query("SELECT * FROM users Where userid = ?", ROW_MAPPER, id)
+                .stream()
+                .findFirst();
+    }
 
 }

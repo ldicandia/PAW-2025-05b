@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface SongDao {
     Song create(String title, String artist, int durationSec, int position, long vinylId);
-    Optional<Vinyl> findById(long id);
-    Optional<Song> findByTitle(long id);
+    Optional<Song> findById(long id);
+    Optional<Song> findByTitle(String title);
 }

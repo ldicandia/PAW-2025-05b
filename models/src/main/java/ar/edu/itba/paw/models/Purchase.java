@@ -7,8 +7,8 @@ import java.util.Date;
 @Getter
 public class Purchase {
     private final long id;
-    private final Buyer buyer;
-    private final Vinyl vinyl;
+    private final long buyerId;
+    private final long vinylId;
     private final String status;
     private final float price;
     private final Date createdAt;
@@ -16,10 +16,10 @@ public class Purchase {
     private final Date paymentReceivedAt;
     private final Date sentAt;
     private final Date deliveredAt;
-    public Purchase(long id, Buyer buyer, Vinyl vinyl, String status, float price, Date createdAt, Date paidAt, Date paymentReceivedAt, Date sentAt, Date deliveredAt) {
+    public Purchase(long id, long buyerId, long vinylId, String status, float price, Date createdAt, Date paidAt, Date paymentReceivedAt, Date sentAt, Date deliveredAt) {
         this.id = id;
-        this.buyer = buyer;
-        this.vinyl = vinyl;
+        this.buyerId = buyerId;
+        this.vinylId = vinylId;
         this.status = status;
         this.price = price;
         this.createdAt = createdAt;
@@ -28,4 +28,5 @@ public class Purchase {
         this.sentAt = sentAt;
         this.deliveredAt = deliveredAt;
     }
+
 }
