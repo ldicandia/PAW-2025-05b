@@ -12,12 +12,12 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head class = "page">
   <meta charset="UTF-8"/>
-  <title>Vinilos publicados</title>
+  <title>Vinilos en venta</title>
 
   <link rel="stylesheet" href="<c:url value='/css/main.css'/>">
-  <link rel="stylesheet" href="<c:url value='/css/components.css'/>">>
+  <link rel="stylesheet" href="<c:url value='/css/components.css'/>">
   <link rel="stylesheet" href="<c:url value='/css/cards.css'/>">
 
   <link rel="stylesheet"
@@ -25,8 +25,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-
 <main class="page">
+  <paw:header />
+
   <h1 class="page-title">Vinilos</h1>
 
   <section class="cards-grid">
@@ -46,7 +47,7 @@
       </c:when>
       <c:otherwise>
         <div class="empty-state">
-          No hay vinilos publicados aún.
+          Aún no hay vinilos publicados.
         </div>
       </c:otherwise>
     </c:choose>

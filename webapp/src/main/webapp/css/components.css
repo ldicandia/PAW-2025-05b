@@ -44,9 +44,12 @@
 .text-right {
     text-align: right;
 }
-.page { padding: 24px; }
 
-.page-title { margin: 0 0 16px 0; font-family: "Inter", Arial, sans-serif; text-align: center }
+.page {
+    background-color: #FFFFFF;
+}
+
+.page-title { margin-top: 24px; font-family: "Inter", Arial, sans-serif; text-align: center }
 
 .mt-1 { margin-top: 0.25rem; }
 .mt-2 { margin-top: 0.5rem; }

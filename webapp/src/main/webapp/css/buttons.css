@@ -214,12 +214,12 @@
     border: none;
     border-radius: 50%;
 
-    width: 40px;    /* ancho fijo */
-    height: 40px;   /* alto fijo */
+    width: 40px;
+    height: 40px;
 
     display: flex;
-    align-items: center;     /* centra vertical */
-    justify-content: center; /* centra horizontal */
+    align-items: center;
+    justify-content: center;
 
     cursor: pointer;
     color: #6b7280;
@@ -242,6 +242,8 @@
 
 /* Botón "Browse Records" */
 .browse-records-button {
+    display: inline-block;
+    text-decoration: none;
     border: 2px solid #d1d5db; /* border-2 border-gray-300 */
     color: #374151; /* text-gray-700 */
     font-weight: 600; /* font-semibold */
