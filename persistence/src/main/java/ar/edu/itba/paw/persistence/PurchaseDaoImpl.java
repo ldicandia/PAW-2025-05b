@@ -50,7 +50,7 @@ public class PurchaseDaoImpl implements PurchaseDao {
 //    paw.public.purchase.sentat
 //    paw.public.purchase.deliveredat
     @Override
-    public Purchase create(long buyerId, long vinylId, String status, int price) {
+    public Purchase create(long buyerId, long vinylId, String status, float price) {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("buyerid", buyerId);
         parameters.put("vinylid", vinylId);

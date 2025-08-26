@@ -26,7 +26,7 @@ public class PurchaseDaoImplTest {
     private static final long BUYER_ID = 1L;
     private static final long VINYL_ID = 1L;
     private static final String STATUS = "created";
-    private static final int PRICE = 100;
+    private static final float PRICE = 100;
 
     private JdbcTemplate jdbcTemplate;
 
@@ -43,7 +43,13 @@ public class PurchaseDaoImplTest {
         JdbcTestUtils.deleteFromTables(jdbcTemplate, "buyer");
         JdbcTestUtils.deleteFromTables(jdbcTemplate, "vinyl");
 
-        //TODO Set up buyer and vinyl entries if foreign keys are enforced
+        // Insert a buyer entry
+        jdbcTemplate.update("INSERT INTO buyer (id, name, email, dni) VALUES (?, ?, ?, ?)",
+                BUYER_ID, "Test Buyer", "testbuyer@example.com", "12345678");
+
+        // Insert a vinyl entry
+        jdbcTemplate.update("INSERT INTO vinyl (id, title, releaseDate, genre, price, condition, publicationStatus, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                VINYL_ID, "Test Vinyl", new java.sql.Date(new Date().getTime()), "Rock", 19.99, "NM", "active", 10);
     }
 
     @Test
@@ -58,7 +64,7 @@ public class PurchaseDaoImplTest {
         assertEquals(BUYER_ID, purchase.getBuyerId());
         assertEquals(VINYL_ID, purchase.getVinylId());
         assertEquals(STATUS, purchase.getStatus());
-        assertEquals(PRICE, purchase.getPrice());
+        assertEquals(PRICE, purchase.getPrice(), 0.001);
         assertEquals(1, JdbcTestUtils.countRowsInTable(jdbcTemplate, "purchase"));
     }
 
@@ -76,6 +82,6 @@ public class PurchaseDaoImplTest {
         assertEquals(BUYER_ID, retrievedPurchase.get().getBuyerId());
         assertEquals(VINYL_ID, retrievedPurchase.get().getVinylId());
         assertEquals(STATUS, retrievedPurchase.get().getStatus());
-        assertEquals(PRICE, retrievedPurchase.get().getPrice());
+        assertEquals(PRICE, retrievedPurchase.get().getPrice(), 0.001);
     }
 }

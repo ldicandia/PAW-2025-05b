@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface PurchaseDao {
 
-    Purchase create(long buyerId, long vinylId, String status, int price);
+    Purchase create(long buyerId, long vinylId, String status, float price);
     Optional<Purchase> findById(long id);
 }

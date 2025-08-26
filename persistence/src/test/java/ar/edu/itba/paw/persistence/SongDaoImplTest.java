@@ -13,6 +13,7 @@ import org.springframework.test.jdbc.JdbcTestUtils;
 
 import javax.sql.DataSource;
 
+import java.util.Date;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
@@ -40,8 +41,10 @@ public class SongDaoImplTest {
     public void setUp() {
         jdbcTemplate = new JdbcTemplate(ds);
         JdbcTestUtils.deleteFromTables(jdbcTemplate, "song");
+        JdbcTestUtils.deleteFromTables(jdbcTemplate, "vinyl");
 
-        //TODO Set up vinyl entry if foreign keys are enforced
+        jdbcTemplate.update("INSERT INTO vinyl (id, title, releaseDate, genre, price, condition, publicationStatus, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                VINYL_ID, "Test Vinyl", new java.sql.Date(new Date().getTime()), "Rock", 19.99, "NM", "active", 10);
     }
 
     @Test
