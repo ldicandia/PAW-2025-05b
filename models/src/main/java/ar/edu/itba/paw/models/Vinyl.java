@@ -1,10 +1,12 @@
 package ar.edu.itba.paw.models;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import java.util.Date;
 
 @Getter
+@Builder
 public class Vinyl {
     private final long id;
     private final String title;

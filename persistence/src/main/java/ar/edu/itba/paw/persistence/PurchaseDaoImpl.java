@@ -39,16 +39,6 @@ public class PurchaseDaoImpl implements PurchaseDao {
                 .usingGeneratedKeyColumns("id")
                 .withTableName("purchase");
     }
-//    paw.public.purchase.id
-//    paw.public.purchase.buyerid
-//    paw.public.purchase.vinylid
-//    paw.public.purchase.status
-//    paw.public.purchase.price
-//    paw.public.purchase.createdat
-//    paw.public.purchase.paidat
-//    paw.public.purchase.paymentreceivedat
-//    paw.public.purchase.sentat
-//    paw.public.purchase.deliveredat
     @Override
     public Purchase create(long buyerId, long vinylId, String status, float price) {
         Map<String, Object> parameters = new HashMap<>();

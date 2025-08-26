@@ -1,8 +1,10 @@
 package ar.edu.itba.paw.models;
 
+import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@Builder
 public class Buyer {
     private final long id;
     private final String name;

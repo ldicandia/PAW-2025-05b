@@ -1,7 +1,9 @@
 package ar.edu.itba.paw.models;
 
+import lombok.Builder;
 import lombok.Getter;
 @Getter
+@Builder
 public class Song {
     private final long id;
     private final String title;

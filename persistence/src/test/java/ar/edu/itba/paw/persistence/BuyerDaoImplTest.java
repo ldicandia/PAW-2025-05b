@@ -44,6 +44,7 @@ public class BuyerDaoImplTest{
 
         // 2. Ejercitar
         Buyer buyer = buyerDao.create(BUYER, EMAIL, DNI);
+
         // 3. Postcondiciones
         assertNotNull(buyer);
         assertNotNull(BUYER, buyer.getName());
