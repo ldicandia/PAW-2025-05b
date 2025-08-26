@@ -20,7 +20,7 @@
     <org.hsqldb.version>2.3.1</org.hsqldb.version>
     <javax.validation-api.version>2.0.1.Final</javax.validation-api.version>
     <org.hibernate.validator.version>6.2.4.Final</org.hibernate.validator.version>
-    <org.projectlombok.version>1.18.26</org.projectlombok.version>
+    <org.projectlombok.version>1.18.28</org.projectlombok.version>
   </properties>
   <dependencyManagement>
     <dependencies>
