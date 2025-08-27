@@ -45,9 +45,9 @@
                             <fmt:formatDate value="${v.releaseDate}" pattern="yyyy-MM-dd" var="dateFmt"/>
                             <paw:card
                                     cardPrice="${priceFmt}"
-                                    cardImg="${v.imageUrl}"
-                                    cardName="${v.title}"
-                                    cardArtist="${v.artist}"
+                                    cardImg="<c:out value='${v.imageUrl}'/>"
+                                    cardName="<c:out value='${v.title}'/>"
+                                    cardArtist="<c:out value='${v.artist}'/>"
                                     cardDate="${dateFmt}"
                             />
                         </c:forEach>

@@ -6,7 +6,7 @@
 <body>
 <h2><spring:message code="register.title"/></h2>
 <c:url var="registerUrl" value="/create"/>
-<form action="${registerUrl}" method="post">
+<form action="<c:out value='${registerUrl}'/>" method="post">
     <div>
         <label>Email:
             <input type="text" name="email"/>
