@@ -1,0 +1,360 @@
+/* Hero Section - CSS Funcional */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #FDFFF6 0%, #ffffff 50%, #F5CEDC 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+}
+
+/* Background Pattern */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.hero-bg-circle-1 {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  background: linear-gradient(to right, #E63961, #D81B60);
+  filter: blur(48px);
+}
+
+.hero-bg-circle-2 {
+  position: absolute;
+  bottom: 5rem;
+  right: 5rem;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 50%;
+  background: linear-gradient(to right, #D81B60, #E63961);
+  filter: blur(48px);
+}
+
+/* Main Container */
+.hero-container {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Grid Layout */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Content Section */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Main Title */
+.hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #111827;
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+.hero-title-gradient {
+  display: block;
+  background: linear-gradient(to right, #E63961, #D81B60, #E63961);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-top: 0.5rem;
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.25rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  max-width: 600px;
+}
+
+/* Buttons Container */
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+/* Start Collecting Button */
+.btn-start-collecting {
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, #E63961, #D81B60);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.btn-start-collecting:hover {
+  background: linear-gradient(to right, #D81B60, #C2185B);
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Browse Records Button */
+.btn-browse-records {
+  padding: 1rem 2rem;
+  border: 2px solid #d1d5db;
+  color: #374151;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.btn-browse-records:hover {
+  border-color: #E63961;
+  background-color: #F5CEDC;
+}
+
+/* Stats Section */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hero-stat-icon {
+  padding: 0.5rem;
+  background-color: #F5CEDC;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-stat-svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.hero-stat-icon:first-child .hero-stat-svg {
+  color: #8B5CF6;
+}
+
+.hero-stat-icon:last-child .hero-stat-svg {
+  color: #8B5CF6;
+}
+
+.hero-stat-number {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.hero-stat-label {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* Vinyl Records Showcase */
+.vinyl-showcase {
+  position: relative;
+}
+
+.vinyl-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.vinyl-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.vinyl-column:nth-child(2) {
+  padding-top: 2rem;
+}
+
+/* Vinyl Record Cards */
+.vinyl-record {
+  position: relative;
+  width: 100%;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.vinyl-record.large {
+  height: 12rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #E63961, #D81B60);
+}
+
+.vinyl-record.small {
+  height: 8rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+}
+
+/* Vinyl Record Rotations */
+.vinyl-record.rotate-3 {
+  transform: rotate(3deg);
+}
+
+.vinyl-record.rotate-3:hover {
+  transform: rotate(6deg);
+}
+
+.vinyl-record.rotate-neg-2 {
+  transform: rotate(-2deg);
+}
+
+.vinyl-record.rotate-neg-2:hover {
+  transform: rotate(-3deg);
+}
+
+.vinyl-record.rotate-1 {
+  transform: rotate(1deg);
+}
+
+.vinyl-record.rotate-1:hover {
+  transform: rotate(2deg);
+}
+
+.vinyl-record.rotate-neg-1 {
+  transform: rotate(-1deg);
+}
+
+.vinyl-record.rotate-neg-1:hover {
+  transform: rotate(-2deg);
+}
+
+/* Vinyl Record Inner Circles */
+.vinyl-outer-ring {
+  position: absolute;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.vinyl-outer-ring.large {
+  inset: 1rem;
+}
+
+.vinyl-outer-ring.small {
+  inset: 0.5rem;
+  border-width: 1px;
+}
+
+.vinyl-inner-ring {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+.vinyl-inner-ring.large {
+  inset: 1rem;
+}
+
+.vinyl-inner-ring.small {
+  inset: 0.5rem;
+}
+
+.vinyl-center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+}
+
+.vinyl-center-dot.large {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.vinyl-center-dot.small {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .hero-section {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+  
+  .vinyl-showcase {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

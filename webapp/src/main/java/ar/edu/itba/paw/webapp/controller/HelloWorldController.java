@@ -45,14 +45,17 @@ public class HelloWorldController {
         return new ModelAndView("redirect:/?userId=" + newUser.getId());
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.GET)
-    public ModelAndView registerForm(@ModelAttribute("userForm") final UserForm form) {
-        return new ModelAndView("register");
+    @RequestMapping("/demo")
+    public String showButtonsDemo() {
+        return "helloworld/buttons-demo";
     }
 
-    @ModelAttribute("currentUserId")
-    public Optional<User> loggedUserId(){
-        return us.findById(1);
+    @RequestMapping(value = "/processInputMail", method = RequestMethod.POST)
+    public ModelAndView processInputMail(@RequestParam("email") String email,
+                                       @RequestParam("password") String password) {
+        final ModelAndView mav = new ModelAndView("redirect:/");
+        mav.addObject("message", "Formulario procesado correctamente");
+        return mav;
     }
 
 }

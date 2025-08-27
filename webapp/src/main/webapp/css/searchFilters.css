@@ -1,0 +1,297 @@
+/* ===== ESTILOS DE FILTROS DE BÚSQUEDA ===== */
+
+.search-filters-container {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+/* Sección principal de búsqueda */
+.search-main-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+    border-bottom: 1px solid #E2E8F0;
+}
+
+/* Wrapper del input de búsqueda */
+.search-input-wrapper {
+    position: relative;
+    flex: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    font-size: 1.1rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    border: 2px solid #E2E8F0;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: "Inter", Arial, sans-serif;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #8B5CF6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.search-input::placeholder {
+    color: #94A3B8;
+}
+
+/* Botón de filtros - Estilo rosa como button.tag */
+.filters-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(to right, #E63961, #D81B60);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", Arial, sans-serif;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.filters-toggle-btn:hover {
+    background: linear-gradient(to right, #D81B60, #C2185B);
+    transform: translateY(-1px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.filters-toggle-btn.active {
+    background: linear-gradient(to right, #C2185B, #AD1457);
+}
+
+.filters-toggle-btn i {
+    font-size: 1rem;
+}
+
+/* Selector de moneda - Estilo "Explorar Discos" */
+.currency-selector {
+    position: relative;
+}
+
+.currency-select {
+    padding: 0.875rem 2.5rem 0.875rem 1rem;
+    background: white;
+    color: #374151;
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    appearance: none;
+    font-family: "Inter", Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.currency-select:hover {
+    border-color: #E63961;
+    background-color: #F5CEDC;
+}
+
+.currency-selector::after {
+    content: '▼';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748B;
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+/* Panel de filtros */
+.filters-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+}
+
+.filters-panel.filters-panel-open {
+    max-height: 500px;
+}
+
+/* Grid de filtros */
+.filters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+/* Grupo de filtro */
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+/* Select de filtros */
+.filter-select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #E2E8F0;
+    border-radius: 0.5rem;
+    background: white;
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #8B5CF6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Inputs de rango de precio */
+.price-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.price-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E2E8F0;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    background: white;
+    transition: all 0.3s ease;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.price-input:focus {
+    outline: none;
+    border-color: #8B5CF6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.price-separator {
+    color: #64748B;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* Botones de acción */
+.filters-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: #F8FAFC;
+    border-top: 1px solid #E2E8F0;
+}
+
+.btn-clear-filters {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #374151;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.btn-clear-filters:hover {
+    border-color: #E63961;
+    background-color: #F5CEDC;
+}
+
+.btn-apply-filters {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #E63961, #D81B60);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Inter", Arial, sans-serif;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-apply-filters:hover {
+    background: linear-gradient(to right, #D81B60, #C2185B);
+    transform: translateY(-1px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-main-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .filters-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .filters-actions {
+        flex-direction: column;
+    }
+    
+    .price-range-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .price-separator {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-main-section {
+        padding: 1rem;
+    }
+    
+    .filters-grid {
+        padding: 1rem;
+    }
+    
+    .filters-actions {
+        padding: 1rem;
+    }
+}
