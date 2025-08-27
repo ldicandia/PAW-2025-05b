@@ -88,11 +88,40 @@
     gap: 2px;
     padding: 0 16px 16px;
 }
+
+/* Grid de tarjetas */
 .cards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    align-items: stretch;
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+    }
+}
+
+/* Estado vacío */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6b7280;
+    font-size: 1.125rem;
+    background: #f9fafb;
+    border-radius: 0.75rem;
+    border: 2px dashed #d1d5db;
+}
+
+.empty-state::before {
+    content: "📀";
+    display: block;
+    font-size: 3rem;
+    margin-bottom: 1rem;
 }
 
 
